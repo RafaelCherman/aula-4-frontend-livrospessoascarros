@@ -1,0 +1,19 @@
+
+<div *ngIf="erro" class="alert alert-danger" role="alert">
+    {{ mensagemErro }}
+</div>
+<div *ngIf="sucesso" class="alert alert-success" role="alert">
+    {{ mensagemSucesso }}
+</div>
+<div class="mb-3">
+    <label for="exampleInputText1" class="form-label">Nome:</label>
+    <input [disabled]="(opcao == 'deletar')" type="text" class="form-control" name="exampleInputText1" aria-describedby="emailHelp"
+        [(ngModel)]="carro.nome">
+</div>
+<div class="mb-3">
+    <label for="exampleInputPassword1" class="form-label">Ano:</label>
+    <input [disabled]="(opcao == 'deletar')" type="number" class="form-control" name="exampleInputPassword1" [(ngModel)]="carro.ano">
+</div>
+<input *ngIf="opcao == 'cadastrar'" (click)="salvar()" type="button" class="btn btn-success" value="Cadastrar">
+<input *ngIf="opcao == 'editar'" (click)="editar()" type="button" class="btn btn-warning" value="Editar">
+<input *ngIf="opcao == 'deletar'" (click)="deletar()" type="button" class="btn btn-danger" value="Deletar">

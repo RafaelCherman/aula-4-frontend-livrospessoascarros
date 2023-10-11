@@ -1,0 +1,47 @@
+<div class="container">
+    <h3 class="alert alert-primary">Listagem de livros!</h3>
+    <td> <button class="btn btn-primary" (click)="adicionar(modal1)">Adicionar</button> </td>
+    <div class="row">
+        <div class="col-lg-12">
+            <table class="table table-striped">
+                <thead>
+                  <tr>
+                    <th class="col-2" scope="col">#ID</th>
+                    <th class="col-3" scope="col">Titulo</th>
+                    <th class="col-3" scope="col">Autor</th>
+                    <th class="col-4" scope="col">Ações</th>
+                  </tr>
+                </thead>
+                <tbody>
+                    <tr *ngFor="let livro of lista; let i = index">
+                        <th scope="row">{{ livro.id }}</th>
+                        <td> {{ livro.titulo }} </td>
+                        <td> {{ livro.autor }} </td>
+                        <td> 
+                            <button class="btn btn-warning" (click)="editar(modal1, livro, i)">Editar</button>
+                            <button class="btn btn-danger" (click)="deletar(modal1, livro, i)">Deletar</button> 
+                        </td>
+                    </tr>
+                </tbody>
+              </table>
+        </div>
+    </div>
+</div>
+
+
+<ng-template #modal1 let-modal>
+    <div class="modal-header">
+        <h4 *ngIf="opcao == 'cadastrar'" class="modal-title">Cadastrar</h4>
+        <h4 *ngIf="opcao == 'editar'" class="modal-title">Editar</h4>
+        <h4 *ngIf="opcao == 'deletar'" class="modal-title">Deletar</h4>
+        <button type="button" class="btn-close" aria-label="Close" (click)="modal.dismiss('Cross click')"></button>
+    </div>
+    <div class="modal-body">
+       
+        <app-livrosdetails  [opcao]="opcao" [livro]="livroSelecionado" (retorno)="atualizaLista($event)" ></app-livrosdetails>
+        
+    </div>
+    <div class="modal-footer">
+        <button type="button" class="btn btn-light" (click)="modal.close('Close click')">Close</button>
+    </div>
+</ng-template>
