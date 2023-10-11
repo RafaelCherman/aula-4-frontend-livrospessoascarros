@@ -14,7 +14,7 @@ export class PessoaslistComponent {
 
   opcao: string = "";
   pessoaSelecionada: Pessoa = new Pessoa();
-  indiceSelecionado!: number;
+  //indiceSelecionado!: number;
 
   modalService = inject(NgbModal);
   pessoaService = inject(PessoaService);
@@ -46,16 +46,18 @@ export class PessoaslistComponent {
   }
 
   editar(modal: any, pessoa: Pessoa, indice: number) {
-    this.pessoaSelecionada = Object.assign({}, pessoa); 
-    this.indiceSelecionado = indice;
+    //this.pessoaSelecionada = Object.assign({}, pessoa);
+    this.pessoaSelecionada = pessoa; 
+    //this.indiceSelecionado = indice;
     this.opcao = "editar";
     this.modalService.open(modal, { size: 'sm' });
   }
 
   deletar(modal: any, pessoa: Pessoa, indice: number)
   {
-    this.pessoaSelecionada = Object.assign({}, pessoa);
-    this.indiceSelecionado = indice;
+    //this.pessoaSelecionada = Object.assign({}, pessoa);
+    this.pessoaSelecionada = pessoa;
+    //this.indiceSelecionado = indice;
     this.opcao = "deletar";
     this.modalService.open(modal, { size: 'sm' });
   }

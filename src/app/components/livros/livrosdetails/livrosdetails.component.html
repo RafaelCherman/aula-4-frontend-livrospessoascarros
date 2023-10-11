@@ -14,6 +14,14 @@
     <label for="exampleInputPassword1" class="form-label">Autor:</label>
     <input [disabled]="(opcao == 'deletar')" type="text" class="form-control" name="exampleInputPassword1" [(ngModel)]="livro.autor">
 </div>
+
+<input [ngClass]="{
+    'btn-warning': (opcao == 'editar'),
+    'btn-success': (opcao == 'cadastrar'),
+    'btn-danger': (opcao == 'deletar')
+}" (click)="salvar()" type="button" class="btn" value="teste">
+
+
 <input *ngIf="opcao == 'cadastrar'" (click)="salvar()" type="button" class="btn btn-success" value="Cadastrar">
 <input *ngIf="opcao == 'editar'" (click)="editar()" type="button" class="btn btn-warning" value="Editar">
 <input *ngIf="opcao == 'deletar'" (click)="deletar()" type="button" class="btn btn-danger" value="Deletar">
