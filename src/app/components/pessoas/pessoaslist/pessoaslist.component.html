@@ -13,13 +13,13 @@
                   </tr>
                 </thead>
                 <tbody>
-                    <tr *ngFor="let pessoa of lista; let i = index">
+                    <tr *ngFor="let pessoa of lista">
                         <th scope="row">{{ pessoa.id }}</th>
                         <td> {{ pessoa.nome }} </td>
                         <td> {{ pessoa.idade }} </td>
                         <td> 
-                            <button class="btn btn-warning" (click)="editar(modal1, pessoa, i)">Editar</button>
-                            <button class="btn btn-danger" (click)="deletar(modal1, pessoa, i)">Deletar</button> 
+                            <button class="btn btn-warning" (click)="editar(modal1, pessoa)">Editar</button>
+                            <button class="btn btn-danger" (click)="deletar(modal1, pessoa)">Deletar</button> 
                         </td>
                     </tr>
                 </tbody>

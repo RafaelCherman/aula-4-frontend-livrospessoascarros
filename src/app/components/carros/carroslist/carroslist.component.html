@@ -13,13 +13,13 @@
                   </tr>
                 </thead>
                 <tbody>
-                    <tr *ngFor="let carro of lista; let i = index">
+                    <tr *ngFor="let carro of lista">
                         <th scope="row">{{ carro.id }}</th>
                         <td> {{ carro.nome }} </td>
                         <td> {{ carro.ano }} </td>
                         <td> 
-                            <button class="btn btn-warning" (click)="editar(modal1, carro, i)">Editar</button>
-                            <button class="btn btn-danger" (click)="deletar(modal1, carro, i)">Deletar</button> 
+                            <button class="btn btn-warning" (click)="editar(modal1, carro)">Editar</button>
+                            <button class="btn btn-danger" (click)="deletar(modal1, carro)">Deletar</button> 
                         </td>
                     </tr>
                 </tbody>
@@ -38,7 +38,7 @@
     </div>
     <div class="modal-body">
        
-        <app-carrosdetails  [opcao]="opcao" [carro]="carroSelecionado" (retorno)="atualizaLista($event)" ></app-carrosdetails>
+        <app-carrosdetails  [opcao]="opcao" [carro]="carroSelecionado" (retorno)="atualizaLista()" ></app-carrosdetails>
         
     </div>
     <div class="modal-footer">

@@ -13,13 +13,13 @@
                   </tr>
                 </thead>
                 <tbody>
-                    <tr *ngFor="let livro of lista; let i = index">
+                    <tr *ngFor="let livro of lista">
                         <th scope="row">{{ livro.id }}</th>
                         <td> {{ livro.titulo }} </td>
                         <td> {{ livro.autor }} </td>
                         <td> 
-                            <button class="btn btn-warning" (click)="editar(modal1, livro, i)">Editar</button>
-                            <button class="btn btn-danger" (click)="deletar(modal1, livro, i)">Deletar</button> 
+                            <button class="btn btn-warning" (click)="editar(modal1, livro)">Editar</button>
+                            <button class="btn btn-danger" (click)="deletar(modal1, livro)">Deletar</button> 
                         </td>
                     </tr>
                 </tbody>
@@ -38,7 +38,7 @@
     </div>
     <div class="modal-body">
        
-        <app-livrosdetails  [opcao]="opcao" [livro]="livroSelecionado" (retorno)="atualizaLista($event)" ></app-livrosdetails>
+        <app-livrosdetails  [opcao]="opcao" [livro]="livroSelecionado" (retorno)="atualizaLista()" ></app-livrosdetails>
         
     </div>
     <div class="modal-footer">

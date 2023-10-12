@@ -45,19 +45,15 @@ export class PessoaslistComponent {
     this.modalService.open(modal, { size: 'sm' });
   }
 
-  editar(modal: any, pessoa: Pessoa, indice: number) {
-    //this.pessoaSelecionada = Object.assign({}, pessoa);
-    this.pessoaSelecionada = pessoa; 
-    //this.indiceSelecionado = indice;
+  editar(modal: any, pessoa: Pessoa) {
+    this.pessoaSelecionada = pessoa;
     this.opcao = "editar";
     this.modalService.open(modal, { size: 'sm' });
   }
 
-  deletar(modal: any, pessoa: Pessoa, indice: number)
+  deletar(modal: any, pessoa: Pessoa)
   {
-    //this.pessoaSelecionada = Object.assign({}, pessoa);
     this.pessoaSelecionada = pessoa;
-    //this.indiceSelecionado = indice;
     this.opcao = "deletar";
     this.modalService.open(modal, { size: 'sm' });
   }

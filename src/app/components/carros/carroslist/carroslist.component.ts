@@ -14,7 +14,6 @@ export class CarroslistComponent {
 
   opcao: string = "";
   carroSelecionado: Carro = new Carro();
-  indiceSelecionado!: number;
 
   modalService = inject(NgbModal);
   carroService = inject(CarroService);
@@ -45,24 +44,22 @@ export class CarroslistComponent {
     this.modalService.open(modal, { size: 'sm' });
   }
 
-  editar(modal: any, carro: Carro, indice: number) {
-    this.carroSelecionado = Object.assign({}, carro); 
-    this.indiceSelecionado = indice;
+  editar(modal: any, carro: Carro) {
+    this.carroSelecionado = carro;
     this.opcao = "editar";
     this.modalService.open(modal, { size: 'sm' });
   }
 
-  deletar(modal: any, carro: Carro, indice: number)
+  deletar(modal: any, carro: Carro)
   {
-    this.carroSelecionado = Object.assign({}, carro);
-    this.indiceSelecionado = indice;
+    this.carroSelecionado = carro;
     this.opcao = "deletar";
     this.modalService.open(modal, { size: 'sm' });
   }
 
   
 
-  atualizaLista(obj: any) {
+  atualizaLista() {
 
     this.listAll();
   }

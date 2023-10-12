@@ -14,8 +14,6 @@ export class LivroslistComponent {
 
   opcao: string = "";
   livroSelecionado: Livro = new Livro();
-  indiceSelecionado!: number;
-
   modalService = inject(NgbModal);
   livroService = inject(LivroService);
 
@@ -45,24 +43,22 @@ export class LivroslistComponent {
     this.modalService.open(modal, { size: 'sm' });
   }
 
-  editar(modal: any, livro: Livro, indice: number) {
-    this.livroSelecionado = Object.assign({}, livro); 
-    this.indiceSelecionado = indice;
+  editar(modal: any, livro: Livro) {
+    this.livroSelecionado = livro;
     this.opcao = "editar";
     this.modalService.open(modal, { size: 'sm' });
   }
 
-  deletar(modal: any, livro: Livro, indice: number)
+  deletar(modal: any, livro: Livro)
   {
-    this.livroSelecionado = Object.assign({}, livro);
-    this.indiceSelecionado = indice;
+    this.livroSelecionado = livro;
     this.opcao = "deletar";
     this.modalService.open(modal, { size: 'sm' });
   }
 
   
 
-  atualizaLista(obj: any) {
+  atualizaLista() {
 
     this.listAll();
   }

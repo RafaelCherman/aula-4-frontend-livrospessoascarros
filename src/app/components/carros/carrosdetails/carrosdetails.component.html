@@ -14,6 +14,8 @@
     <label for="exampleInputPassword1" class="form-label">Ano:</label>
     <input [disabled]="(opcao == 'deletar')" type="number" class="form-control" name="exampleInputPassword1" [(ngModel)]="carro.ano">
 </div>
-<input *ngIf="opcao == 'cadastrar'" (click)="salvar()" type="button" class="btn btn-success" value="Cadastrar">
-<input *ngIf="opcao == 'editar'" (click)="editar()" type="button" class="btn btn-warning" value="Editar">
-<input *ngIf="opcao == 'deletar'" (click)="deletar()" type="button" class="btn btn-danger" value="Deletar">
+<input [ngClass]="{
+    'btn-warning': (opcao == 'editar'),
+    'btn-success': (opcao == 'cadastrar'),
+    'btn-danger': (opcao == 'deletar')
+}" (click)="salvar()" type="button" class="btn" value="{{opcao}}">
